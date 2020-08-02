@@ -5,7 +5,7 @@ const Joi = require('joi');
 // exporting module
 module.exports = {
 	companyValidate: Joi.object().keys({
-        userId: Joi.string().required().trim().description('User Id Who Createing This Company '),
+        userId: Joi.string().required().trim().description('User Id Who Createing This Company'),
         companyName: Joi.string().required().trim().description('Company Name'),
         website: Joi.string().allow('', null).trim().description('Website Url'),
         description: Joi.string().allow('', null).trim().description('Description about company'),
