@@ -7,10 +7,10 @@ const schema = new mongoose.Schema(
 	{
         userId: { type: String, trim: true },
         companyName: { type: String, trim: true },
-        Website: { type: String, trim: true },
+        website: { type: String, trim: true },
         description: { type: String, trim: true },
         phone: { type: Number, trim: true },
-        fax: { type: String, trim: true },
+        fax: { type: Number, trim: true },
         tags: {type: String, trim: true},
         address: {
             // Billing Address
