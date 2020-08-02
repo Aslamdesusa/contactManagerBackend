@@ -10,6 +10,12 @@ const plugins = [
 			productionUri: Config.productionMongoDB
 		}
 	},
+	{
+		plugin: '../app/routes/__company__routes',
+		routes: {
+			prefix: '/company/api/v1'
+		}
+	},
 ];
 
 exports.manifest = {
