@@ -12,3 +12,9 @@ exports.createCompay = {
 	pre: [ { method: middleware.checkCompanyExistance, assign: 'Company' } ],
 	handler: Handlers.createCompay,
 };
+
+exports.getCompanies = {
+	tags: [ 'api' ],
+	notes: 'GET Companies Data',
+	handler: Handlers.getCompanies,
+};

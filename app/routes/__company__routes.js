@@ -11,6 +11,11 @@ exports.plugin = {
 				path: '/create/company',
 				options: Controllers.compnay.companies.createCompay
 			},
+			{
+				method: 'GET',
+				path: '/get/companies',
+				options: Controllers.compnay.companies.getCompanies
+			},
 		]);
 	},
 	version: require('../../package.json').version,
