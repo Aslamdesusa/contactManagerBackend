@@ -47,7 +47,7 @@ exports.manifest = {
 			jsonp: 'callback'
 		},
 		debug: Config.debug,
-		port: Config.port
+		port: process.env.PORT || Config.port
 	},
 	register: {
 		plugins
