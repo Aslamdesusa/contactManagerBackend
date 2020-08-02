@@ -28,7 +28,7 @@ const plugins = [
 	{
 		plugin: '../app/routes/__company__routes',
 		routes: {
-			prefix: '/company/api/v1'
+			prefix: '/company/api/contact-manager/v1'
 		}
 	},
 ];
