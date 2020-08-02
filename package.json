@@ -20,6 +20,8 @@
     "glob": "^7.1.6",
     "glue": "^6.0.0",
     "mongoose": "^5.9.27",
+    "mongoose-timestamp": "^0.6.0",
+    "mongoose-type-url": "^2.0.0",
     "nodemon": "^2.0.4"
   }
 }
