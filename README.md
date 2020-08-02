@@ -14,7 +14,8 @@ npm start
 ## Database
 ```
 For Data base connection. 
-Only then you will be able to connect to the database when you provide me your IP address then I can give access to this application.
+Only then you will be able to connect to the database
+when you provide me your IP address then I can give access to this application.
 ```
 
 ### Customize configuration
