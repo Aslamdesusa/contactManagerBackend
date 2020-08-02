@@ -2,17 +2,15 @@ const config = require('config');
 const Config = JSON.parse(JSON.stringify(config));
 const Pack = require('../package.json');
 
-// const plugins = [
-// 	{
-//         plugin: 'hapi-swagger',
-//         options: {
-// 			info: {
-// 				title: 'API Documentation',
-// 				version: '1'
-// 			}
-// 		}
-//     },
-// ];
+const plugins = [
+    {
+		plugin: '../lib/mongoose',
+		options: {
+			uri: Config.mongo,
+			productionUri: Config.productionMongoDB
+		}
+	},
+];
 
 exports.manifest = {
 	server: {
@@ -30,7 +28,7 @@ exports.manifest = {
 		debug: Config.debug,
 		port: Config.port
 	},
-	// register: {
-	// 	plugins
-	// }
+	register: {
+		plugins
+	}
 };

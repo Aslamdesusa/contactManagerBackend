@@ -18,6 +18,6 @@
 		}
 	},
 	
-	"mongo": "mongodb://localhost:27017/anaajGhar",
-	"productionMongoDB": "mongodb+srv://anaaj-ghar123:v7hK4W1xsmYe3shy@cluster0-akany.mongodb.net/test?retryWrites=true&w=majority"
+	"mongo": "mongodb://localhost:27017/contactManager",
+    "productionMongoDB": "mongodb+srv://contactManager:manager@cluster0.kdauu.mongodb.net/testMongo?retryWrites=true&w=majority"
 }

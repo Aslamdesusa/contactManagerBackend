@@ -16,7 +16,10 @@
   "dependencies": {
     "@hapi/hapi": "^19.2.0",
     "config": "^3.3.1",
+    "dotenv": "^8.2.0",
+    "glob": "^7.1.6",
     "glue": "^6.0.0",
+    "mongoose": "^5.9.27",
     "nodemon": "^2.0.4"
   }
 }
