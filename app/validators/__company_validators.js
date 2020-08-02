@@ -9,8 +9,8 @@ module.exports = {
         companyName: Joi.string().required().trim().description('Company Name'),
         website: Joi.string().allow('', null).trim().description('Website Url'),
         description: Joi.string().allow('', null).trim().description('Description about company'),
-        phone: Joi.number().allow('', null).description('Phone'),
-        fax: Joi.number().allow('', null).description('fax id'),
+        phone: Joi.string().allow('', null).description('Phone'),
+        fax: Joi.string().allow('', null).description('fax id'),
         tags: Joi.string().allow('', null).trim().description('Any Tag For search this data'),
         address: {
             // Billing Address

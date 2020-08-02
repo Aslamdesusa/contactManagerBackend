@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 require('mongoose-type-url');
 const timestamps = require('mongoose-timestamp');
+const { string } = require('joi');
 
 // data model of company
 const schema = new mongoose.Schema(
@@ -9,8 +10,8 @@ const schema = new mongoose.Schema(
         companyName: { type: String, trim: true },
         website: { type: String, trim: true },
         description: { type: String, trim: true },
-        phone: { type: Number, trim: true },
-        fax: { type: Number, trim: true },
+        phone: { type: String, trim: true },
+        fax: { type: String, trim: true },
         tags: {type: String, trim: true},
         address: {
             // Billing Address
