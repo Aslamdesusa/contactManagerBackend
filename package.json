@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node bootstrap.js"
+    "start": "nodemon bootstrap.js"
   },
   "keywords": [
     "project",
@@ -16,6 +16,7 @@
   "dependencies": {
     "@hapi/hapi": "^19.2.0",
     "config": "^3.3.1",
-    "glue": "^6.0.0"
+    "glue": "^6.0.0",
+    "nodemon": "^2.0.4"
   }
 }
