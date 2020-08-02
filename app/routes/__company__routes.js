@@ -16,6 +16,11 @@ exports.plugin = {
 				path: '/get/companies',
 				options: Controllers.compnay.companies.getCompanies
 			},
+			{
+				method: 'GET',
+				path: '/get/company/by/id',
+				options: Controllers.compnay.companies.getCompanyById
+			},
 		]);
 	},
 	version: require('../../package.json').version,

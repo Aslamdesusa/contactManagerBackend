@@ -31,5 +31,9 @@ module.exports = {
             },
         },
         avatarUrl: Joi.string().allow('', null).trim().description('Avtar Url'),
-    })
+    }),
+
+    _id: Joi.object().keys({
+		_id: Joi.string().required().trim().description('company id')
+    }),
 };

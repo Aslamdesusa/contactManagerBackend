@@ -18,3 +18,12 @@ exports.getCompanies = {
 	notes: 'GET Companies Data',
 	handler: Handlers.getCompanies,
 };
+
+exports.getCompanyById = {
+	tags: [ 'api' ],
+	notes: 'GET company Data by id',
+	validate:{
+		query: validators._id
+	},
+	handler: Handlers.getCompanyById,
+};
