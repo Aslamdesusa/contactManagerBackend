@@ -22,14 +22,14 @@ module.exports = {
                 billingZipCode: Joi.string().allow('', null).trim().description('Billing Zip Code'),
             },
             // Shipping Address
-            ShippingAddress:{
-                ShippingStreet: Joi.string().allow('', null).trim().description('Shipping Street'),
-                ShippingCity: Joi.string().allow('', null).trim().description('Shipping City'),
-                ShippingState: Joi.string().allow('', null).trim().description('Shipping State'),
-                ShippingCountry: Joi.string().allow('', null).trim().description('Shipping Country'),
-                ShippingZipCode: Joi.string().allow('', null).trim().description('Shipping Zip Code'),
+            shippingAddress:{
+                shippingStreet: Joi.string().allow('', null).trim().description('Shipping Street'),
+                shippingCity: Joi.string().allow('', null).trim().description('Shipping City'),
+                shippingState: Joi.string().allow('', null).trim().description('Shipping State'),
+                shippingCountry: Joi.string().allow('', null).trim().description('Shipping Country'),
+                shippingZipCode: Joi.string().allow('', null).trim().description('Shipping Zip Code'),
             },
         },
-        AvatarUrl: Joi.string().allow('', null).trim().description('Avtar Url'),
+        avatarUrl: Joi.string().allow('', null).trim().description('Avtar Url'),
     })
 };

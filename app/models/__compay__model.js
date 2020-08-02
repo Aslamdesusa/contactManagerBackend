@@ -22,16 +22,16 @@ const schema = new mongoose.Schema(
                 billingZipCode: {type: String, trim: true}
             },
             // Shipping Address
-            ShippingAddress:{
-                ShippingStreet: {type: String, trim: true},
-                ShippingCity: {type: String, trim: true},
-                ShippingState: {type: String, trim: true},
-                ShippingCountry: {type: String, trim: true},
-                ShippingZipCode: {type: String, trim: true}
+            shippingAddress:{
+                shippingStreet: {type: String, trim: true},
+                shippingCity: {type: String, trim: true},
+                shippingState: {type: String, trim: true},
+                shippingCountry: {type: String, trim: true},
+                shippingZipCode: {type: String, trim: true}
             }
         },
-        AvatarUrl: {type: String, trim: true},
-        CustomFields: {type: Array}
+        avatarUrl: {type: String, trim: true},
+        customFields: {type: Array}
 	},
 	{ collection: 'companies' }
 );
