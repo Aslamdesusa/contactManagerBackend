@@ -11,6 +11,21 @@ const plugins = [
 		}
 	},
 	{
+		plugin: '@hapi/inert',
+	},
+	{
+		plugin: '@hapi/vision',
+	},
+	{
+        plugin: 'hapi-swagger',
+        options: {
+			info: {
+				title: 'API Documentation',
+				version: '1'
+			}
+		}
+    },
+	{
 		plugin: '../app/routes/__company__routes',
 		routes: {
 			prefix: '/company/api/v1'
