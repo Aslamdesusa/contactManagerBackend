@@ -1,6 +1,6 @@
 'use strict';
 const Glue = require('glue');
-const serverConfig = require('../config/manifest');
+const serverConfig = require('../config/manifest'); 
 
 // this is the line we mention in manifest.js
 // relativeTo parameter should be defined here
