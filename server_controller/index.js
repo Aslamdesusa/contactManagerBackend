@@ -10,6 +10,15 @@ const startServer = async function() {
 	try {
 		const server = await Glue.compose(serverConfig.manifest, options);
 
+		server.route({
+			method: 'GET',
+			path: '/',
+			handler: (request, h) => {
+	
+				return 'Hello World!';
+			}
+		});
+
 		await server.start();
 
 		console.log(`Server listening on ${server.info.uri}`);
