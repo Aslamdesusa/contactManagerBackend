@@ -1,0 +1,23 @@
+{
+    "WebApp": "Contact Manager",
+	"port": 3000,
+	"debug": {
+		"request": [ "error", "info" ],
+		"log": [ "info", "error", "warning" ]
+	},
+	"cookie": {
+		"storeBlank": false,
+		"cache": {
+			"cache": "redisCache",
+			"expiresIn": 604800000
+		},
+		"cookieOptions": {
+			"password": "RANDOM_COOKIE_PASSWORD",
+			"isSecure": false,
+			"ttl": 864000000
+		}
+	},
+	
+	"mongo": "mongodb://localhost:27017/anaajGhar",
+	"productionMongoDB": "mongodb+srv://anaaj-ghar123:v7hK4W1xsmYe3shy@cluster0-akany.mongodb.net/test?retryWrites=true&w=majority"
+}

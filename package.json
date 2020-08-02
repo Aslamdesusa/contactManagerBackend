@@ -1,0 +1,21 @@
+{
+  "name": "contactmanagerb",
+  "version": "1.0.0",
+  "description": "This project seems like zoho contact manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bootstrap.js"
+  },
+  "keywords": [
+    "project",
+    "0.1"
+  ],
+  "author": "Aslam Desusa",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^19.2.0",
+    "config": "^3.3.1",
+    "glue": "^6.0.0"
+  }
+}
