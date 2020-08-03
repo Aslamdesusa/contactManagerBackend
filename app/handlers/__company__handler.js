@@ -41,4 +41,19 @@ exports.getCompanyById = async (request, h) => {
 	})
 };
 
+exports.editCompanyById = async (request, h) => {
+	return new Promise((resolve, reject) =>{
+		let updateCompany = { 
+            $set : request.payload
+		};
+		companyModel.findOneAndUpdate({_id: request.query._id},updateCompany, async function(err, doc){
+			if (err) {
+				return reject(Boom.forbidden(err))
+			}else{
+				return resolve(h.response({status: 'ok', documents: doc}))
+			}
+		})
+	})
+};
+
 

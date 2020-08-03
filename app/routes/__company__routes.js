@@ -21,6 +21,11 @@ exports.plugin = {
 				path: '/get/company/by/id',
 				options: Controllers.compnay.companies.getCompanyById
 			},
+			{
+				method: 'PUT',
+				path: '/edit/company/by/id',
+				options: Controllers.compnay.companies.editCompanyById
+			},
 		]);
 	},
 	version: require('../../package.json').version,
