@@ -36,6 +36,11 @@ exports.plugin = {
 				path: '/delete/tags',
 				options: Controllers.compnay.companies.deleteTags
 			},
+			{
+				method: 'DELETE',
+				path: '/delete/company',
+				options: Controllers.compnay.companies.deleteCompany
+			},
 		]);
 	},
 	version: require('../../package.json').version,
