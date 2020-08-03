@@ -82,4 +82,16 @@ exports.deleteTags = async (request, h) => {
 	})
 };
 
+exports.deleteCompany = async (request, h) => {
+	return new Promise((resolve, reject) =>{
+		companyModel.deleteOne({_id: request.query._id}, async function(err, doc){
+			if (err) {
+				return reject(Boom.forbidden(err))
+			}else{
+				return resolve(h.response({status: 'ok', documents: doc}))
+			}
+		})
+	})
+};
+
 
