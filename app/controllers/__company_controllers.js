@@ -57,3 +57,13 @@ exports.deleteTags = {
 	},
 	handler: Handlers.deleteTags,
 };
+
+exports.deleteCompany = {
+	tags: [ 'api' ],
+	notes: 'DELETE company and its data by id',
+	validate: {
+		query: validators._id,
+	},
+	handler: Handlers.deleteCompany,
+};
+
