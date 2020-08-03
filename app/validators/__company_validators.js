@@ -11,7 +11,7 @@ module.exports = {
         description: Joi.string().allow('', null).trim().description('Description about company'),
         phone: Joi.string().allow('', null).description('Phone'),
         fax: Joi.string().allow('', null).description('fax id'),
-        tags: Joi.string().allow('', null).trim().description('Any Tag For search this data'),
+        tags: Joi.array().allow('', null).description('Any Tag For search this data'),
         address: {
             // Billing Address
             billingAddress:{
@@ -35,5 +35,9 @@ module.exports = {
 
     _id: Joi.object().keys({
 		_id: Joi.string().required().trim().description('company id')
+    }),
+
+    tags: Joi.object().keys({
+		tags: Joi.array().description('company tags to filter data')
     }),
 };

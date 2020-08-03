@@ -26,6 +26,11 @@ exports.plugin = {
 				path: '/edit/company/by/id',
 				options: Controllers.compnay.companies.editCompanyById
 			},
+			{
+				method: 'PUT',
+				path: '/add/tags',
+				options: Controllers.compnay.companies.addMoreTags
+			},
 		]);
 	},
 	version: require('../../package.json').version,

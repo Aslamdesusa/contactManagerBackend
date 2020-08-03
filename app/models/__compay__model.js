@@ -12,7 +12,7 @@ const schema = new mongoose.Schema(
         description: { type: String, trim: true },
         phone: { type: String, trim: true },
         fax: { type: String, trim: true },
-        tags: {type: String, trim: true},
+        tags: {type: Array},
         address: {
             // Billing Address
             billingAddress:{

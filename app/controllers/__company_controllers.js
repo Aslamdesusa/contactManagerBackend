@@ -37,3 +37,13 @@ exports.editCompanyById = {
 	},
 	handler: Handlers.editCompanyById,
 };
+
+exports.addMoreTags = {
+	tags: [ 'api' ],
+	notes: 'EDIT company Data by id',
+	validate: {
+		query: validators._id,
+		payload: validators.tags
+	},
+	handler: Handlers.addMoreTags,
+};
