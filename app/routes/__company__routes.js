@@ -31,6 +31,11 @@ exports.plugin = {
 				path: '/add/tags',
 				options: Controllers.compnay.companies.addMoreTags
 			},
+			{
+				method: 'PUT',
+				path: '/delete/tags',
+				options: Controllers.compnay.companies.deleteTags
+			},
 		]);
 	},
 	version: require('../../package.json').version,

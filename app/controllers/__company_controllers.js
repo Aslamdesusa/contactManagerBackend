@@ -40,10 +40,20 @@ exports.editCompanyById = {
 
 exports.addMoreTags = {
 	tags: [ 'api' ],
-	notes: 'EDIT company Data by id',
+	notes: 'ADD company Data by id',
 	validate: {
 		query: validators._id,
 		payload: validators.tags
 	},
 	handler: Handlers.addMoreTags,
+};
+
+exports.deleteTags = {
+	tags: [ 'api' ],
+	notes: 'DELETE company TAGS by id',
+	validate: {
+		query: validators._id,
+		payload: validators.tags
+	},
+	handler: Handlers.deleteTags,
 };

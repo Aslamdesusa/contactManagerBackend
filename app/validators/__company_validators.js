@@ -38,6 +38,6 @@ module.exports = {
     }),
 
     tags: Joi.object().keys({
-		tags: Joi.array().description('company tags to filter data')
+		  tags: Joi.array().description('company tags to filter data')
     }),
 };
