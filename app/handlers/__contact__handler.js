@@ -68,3 +68,15 @@ exports.addMoreTags = async (request, h) => {
 		})
 	})
 };
+
+exports.deleteTags = async (request, h) => {
+	return new Promise((resolve, reject) =>{
+		contactModel.updateOne({_id: request.query._id},{$pull: {tags: {$in: request.payload.tags}}}, async function(err, doc){
+			if (err) {
+				return reject(Boom.forbidden(err))
+			}else{
+				return resolve(h.response({status: 'ok', documents: doc}))
+			}
+		})
+	})
+};
