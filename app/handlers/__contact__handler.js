@@ -41,3 +41,18 @@ exports.getContactById = async (request, h) => {
 		})
 	})
 };
+
+exports.editContactById = async (request, h) => {
+	return new Promise((resolve, reject) =>{
+		let updateContact = { 
+            $set : request.payload
+		};
+		contactModel.findOneAndUpdate({_id: request.query._id},updateContact, async function(err, doc){
+			if (err) {
+				return reject(Boom.forbidden(err))
+			}else{
+				return resolve(h.response({status: 'ok', documents: doc}))
+			}
+		})
+	})
+};
