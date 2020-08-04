@@ -15,6 +15,11 @@ exports.plugin = {
 				method: 'GET',
 				path: '/get/contacts',
 				options: Controllers.contacts.contact.getContacts
+            },
+            {
+				method: 'GET',
+				path: '/get/contact/by/id',
+				options: Controllers.contacts.contact.getContactById
 			},
 		]);
 	},
