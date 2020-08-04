@@ -14,7 +14,7 @@ exports.plugin = {
             {
 				method: 'GET',
 				path: '/get/contacts',
-				options: Controllers.compnay.companies.getContacts
+				options: Controllers.contacts.contact.getContacts
 			},
 		]);
 	},
