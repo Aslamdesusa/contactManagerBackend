@@ -30,7 +30,7 @@ exports.getContacts = async (request, h) => {
 	})
 };
 
-exports.getCompanyById = async (request, h) => {
+exports.getContactById = async (request, h) => {
 	return new Promise((resolve, reject) =>{
 		contactModel.findOne({_id: request.query._id}, async function(err, doc){
 			if (err) {

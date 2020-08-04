@@ -18,3 +18,12 @@ exports.getContacts = {
 	notes: 'GET contacts Data',
 	handler: Handlers.getContacts,
 };
+
+exports.getContactById = {
+	tags: [ 'api' ],
+	notes: 'GET contact Data by id',
+	validate:{
+		query: validators._id
+	},
+	handler: Handlers.getContactById,
+};
