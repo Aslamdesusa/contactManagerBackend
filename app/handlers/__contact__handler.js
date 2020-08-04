@@ -17,3 +17,15 @@ exports.createContact = async (request, h) => {
 	};
 	return new Promise(pr);
 };
+
+exports.getContacts = async (request, h) => {
+	return new Promise((resolve, reject) =>{
+		contactModel.find(async function(err, doc){
+			if (err) {
+				return reject(Boom.forbidden(err))
+			}else{
+				return resolve(h.response({status: 'ok', documents: doc}))
+			}
+		})
+	})
+};
