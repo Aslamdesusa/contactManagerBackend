@@ -57,3 +57,12 @@ exports.deleteTags = {
 	},
 	handler: Handlers.deleteTags,
 };
+
+exports.deleteContact = {
+	tags: [ 'api' ],
+	notes: 'DELETE contact and its data by id',
+	validate: {
+		query: validators._id,
+	},
+	handler: Handlers.deleteContact,
+};
