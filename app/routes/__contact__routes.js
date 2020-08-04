@@ -35,6 +35,11 @@ exports.plugin = {
 				method: 'PUT',
 				path: '/delete/tags',
 				options: Controllers.contacts.contact.deleteTags
+            },
+            {
+				method: 'DELETE',
+				path: '/delete/contact',
+				options: Controllers.contacts.contact.deleteContact
 			},
 		]);
 	},
