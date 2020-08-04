@@ -48,7 +48,7 @@ exports.editContactById = async (request, h) => {
 		let updateContact = { 
             $set : request.payload
 		};
-		contactModel.findOneAndUpdate({_id: request.query._id},updateContact, async function(err, doc){
+		contactModel.updateOne({_id: request.query._id},updateContact, async function(err, doc){
 			if (err) {
 				return reject(Boom.forbidden(err))
 			}else{
