@@ -25,6 +25,11 @@ exports.plugin = {
 				method: 'PUT',
 				path: '/edit/contact/by/id',
 				options: Controllers.contacts.contact.editContactById
+            },
+            {
+				method: 'PUT',
+				path: '/add/tags',
+				options: Controllers.contacts.contact.addMoreTags
 			},
 		]);
 	},
