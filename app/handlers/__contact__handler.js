@@ -5,6 +5,7 @@ const Boom = require('boom');
 
 // Creating Company Details 
 exports.createContact = async (request, h) => {
+	
 	let pr = async (resolve, reject) => {
 		let new_contact = new contactModel(request.payload);
 		new_contact.save(async function(err, doc) {
