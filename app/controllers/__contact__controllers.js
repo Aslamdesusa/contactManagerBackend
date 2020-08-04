@@ -13,8 +13,8 @@ exports.createContact = {
 	handler: Handlers.createContact,
 };
 
-// exports.getContact = {
-// 	tags: [ 'api' ],
-// 	notes: 'GET Companies Data',
-// 	handler: Handlers.getCompanies,
-// };
+exports.getContacts = {
+	tags: [ 'api' ],
+	notes: 'GET contacts Data',
+	handler: Handlers.getContacts,
+};
