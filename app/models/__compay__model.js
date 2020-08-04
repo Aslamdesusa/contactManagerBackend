@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('mongoose-type-url');
 const timestamps = require('mongoose-timestamp');
 
-// model for contact
+// data model of company
 const schema = new mongoose.Schema(
 	{
         userId: { type: String, trim: true },
@@ -32,11 +32,11 @@ const schema = new mongoose.Schema(
         },
         avatarUrl: {type: String, trim: true},
 	},
-	{ collection: 'contacts' }
+	{ collection: 'companies' }
 );
 
 //The companies model will now have createdAt and updatedAt properties, which get automatically generated and updated when you save your document.
 schema.plugin(timestamps);
 
-const Contact = mongoose.model('Contact', schema);
-module.exports = Contact;
+const Company = mongoose.model('company', schema);
+module.exports = Company;

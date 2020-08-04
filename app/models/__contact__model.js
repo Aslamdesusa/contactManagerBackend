@@ -28,11 +28,11 @@ const schema = new mongoose.Schema(
         },
         avatarUrl: {type: String, trim: true},
 	},
-	{ collection: 'companies' }
+	{ collection: 'contacts' }
 );
 
 //The companies model will now have createdAt and updatedAt properties, which get automatically generated and updated when you save your document.
 schema.plugin(timestamps);
 
-const Company = mongoose.model('company', schema);
-module.exports = Company;
+const Contacts = mongoose.model('Contacts', schema);
+module.exports = Contacts;
