@@ -20,6 +20,11 @@ exports.plugin = {
 				method: 'GET',
 				path: '/get/contact/by/id',
 				options: Controllers.contacts.contact.getContactById
+            },
+            {
+				method: 'PUT',
+				path: '/edit/contact/by/id',
+				options: Controllers.contacts.contact.editContactById
 			},
 		]);
 	},
