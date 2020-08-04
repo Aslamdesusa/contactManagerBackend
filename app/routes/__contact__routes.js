@@ -10,6 +10,11 @@ exports.plugin = {
 				method: 'POST',
 				path: '/create/contact',
 				options: Controllers.contacts.contact.createContact
+            },
+            {
+				method: 'GET',
+				path: '/get/contacts',
+				options: Controllers.compnay.companies.getContacts
 			},
 		]);
 	},
