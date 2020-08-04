@@ -56,3 +56,15 @@ exports.editContactById = async (request, h) => {
 		})
 	})
 };
+
+exports.addMoreTags = async (request, h) => {
+	return new Promise((resolve, reject) =>{
+		contactModel.findOneAndUpdate({_id: request.query._id},{$push: {tags: request.payload.tags}}, async function(err, doc){
+			if (err) {
+				return reject(Boom.forbidden(err))
+			}else{
+				return resolve(h.response({status: 'ok', documents: doc}))
+			}
+		})
+	})
+};
