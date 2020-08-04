@@ -27,3 +27,13 @@ exports.getContactById = {
 	},
 	handler: Handlers.getContactById,
 };
+
+exports.editContactById = {
+	tags: [ 'api' ],
+	notes: 'EDIT contact Data by id',
+	validate: {
+		query: validators._id,
+		payload: validators.contactValidate
+	},
+	handler: Handlers.editContactById,
+};
