@@ -7,7 +7,8 @@ module.exports = {
 	contactValidate: Joi.object().keys({
         userId: Joi.string().required().trim().description('User Id Who Createing This contact'),
         contactName: Joi.string().required().trim().description('contact name'),
-        title: Joi.string().allow('', null).trim().description('titler'),
+        title: Joi.string().allow('', null).trim().description('title'),
+        companyId: Joi.string().allow('', null).trim().description('companyId'),
         description: Joi.string().allow('', null).trim().description('Description about company'),
         tags: Joi.array().allow('', null).description('Any Tag For search this data'),
         contactInfo: {
