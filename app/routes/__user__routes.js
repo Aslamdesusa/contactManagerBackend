@@ -15,7 +15,12 @@ exports.plugin = {
 				method: 'POST',
 				path: '/login/user',
 				options: Controllers.users.user.login
-            },
+			},
+			{
+				method: 'GET',
+				path: '/user/single/user',
+				options: Controllers.users.user.getUserById
+			},
 		]);
 	},
 	version: require('../../package.json').version,

@@ -21,3 +21,12 @@ exports.login = {
 	},
 	handler: Handlers.login
 };
+
+exports.getUserById = {
+	tags: [ 'api' ],
+	notes: 'getting user data by uniq id',
+	validate: {
+		query: validators._id
+	},
+	handler: Handlers.getUserById
+};
