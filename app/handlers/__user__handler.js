@@ -12,7 +12,7 @@ exports.createUser = async (request, h) => {
 			if (err) {
 				return reject(Boom.forbidden(err));
 			} else {
-				return resolve(h.response({ status: 'ok', contactId: doc._id }).code(201));
+				return resolve(h.response({ status: 'ok', user_id: doc._id }).code(201));
 			}
 		});
 	};
