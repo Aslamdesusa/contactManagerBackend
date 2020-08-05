@@ -18,3 +18,21 @@ exports.createUser = async (request, h) => {
 	};
 	return new Promise(pr);
 };
+
+exports.login = async (request, h) => {
+	return new Promise((resolve, reject) => {
+		userModel.checkValidPassword(request.payload.email, request.payload.password)
+			.then((result) => {
+                if (result) {
+                    const token = JWT.sign(
+                        { exp: Math.floor(Date.now() / 1000) + 604800, data: result['_id'].toJSON() },
+                        process.env.SECRET_KEY
+                    );
+                    return resolve(h.response({ token: token, result }).code(201));   
+                }
+			})
+			.catch((error) => {
+				return reject(Boom.badGateway(error));
+			});
+	});
+};
