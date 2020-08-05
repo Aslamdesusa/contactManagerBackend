@@ -8,28 +8,33 @@ const Email = require('mongoose-type-mail');
 
 const schema = new mongoose.Schema(
 	{
-		companyName: { type: String, trim: true, required: true },
-		Email: {type: String, trim: true, required: true},
-        password: { type: String, trim: true },
-        followingCompanies: {type: Array},
-		rols: {type: String, enum: ['administrator', 'data administator', 'standerd'], default: 'administrator'}
+        email: {type: String, trim: true, required: true},
+        password: { type: String, trim: true, required: true },
+        portals: [
+            {
+                portal: { type: String, trim: true, required: true },
+                access: {
+                    profile: {type: String, enum: ['administrator', 'data_administator', 'standard'], default: 'administrator'},
+                    rols: {type: String, trim: true},
+                    status: {type: String, enum: ['Active', 'Inactive'], default: 'Active'}
+                }
+            },
+        ],
 	},
 	{ collection: 'users' }
 );
-
-schema.index({ phone: 1 }, { unique: true }); // schema level
 
 //The User model will now have createdAt and updatedAt properties, which get automatically generated and updated when you save your document.
 schema.plugin(timestamps);
 
 /**
  * checkValidPassword user with given information
- * @param phone
+ * @param email
  * @param password
  */
-schema.statics.checkValidPassword = async function(phone, password) {
+schema.statics.checkValidPassword = async function(email, password) {
 	return new Promise(async (resolve, reject) => {
-		let user = await this.find({ phone: phone }).exec();
+		let user = await this.find({ email: email }).exec();
 		if (user.length == 0) return reject('user does not exist');
 		const doesMatch = await bcrypt.compare(password, user[0].password);
 		if (doesMatch) return resolve({ _id: user[0]['_id'], username: user[0]['username'], userRole: user[0]['rols'] });
