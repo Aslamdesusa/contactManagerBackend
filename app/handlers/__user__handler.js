@@ -1,23 +1,31 @@
 // ** requiring company model **
 const userModel = require('../models/__user__model');
+const portalModel = require('../models/__portal__model');
 const config = require('config');
 const Config = JSON.parse(JSON.stringify(config));
 
 const Boom = require('boom');
 const JWT = require('jsonwebtoken');
+const { conflict } = require('boom');
 
 // Creating Company Details 
 exports.createUser = async (request, h) => {
-	
+
 	let pr = async (resolve, reject) => {
-		let new_user = new userModel(request.payload);
-		new_user.save(async function(err, doc) {
-			if (err) {
-				return reject(Boom.forbidden(err));
-			} else {
-				return resolve(h.response({ status: 'ok', user_id: doc._id }).code(201));
+		portalModel.findOne({portalName: request.payload.portalName}).then(res=>{
+			if (res) {
+				return reject(Boom.conflict('Portal already exist'));
+			}else{
+				let new_user = new userModel(request.payload);
+				new_user.save(async function(err, doc) {
+					if (err) {
+						return reject(Boom.forbidden(err));
+					} else {
+						return resolve(h.response({ status: 'ok', user_id: doc._id }).code(201));
+					}
+				});
 			}
-		});
+		})
 	};
 	return new Promise(pr);
 };
