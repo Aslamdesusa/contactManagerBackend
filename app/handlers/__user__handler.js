@@ -1,5 +1,7 @@
 // ** requiring company model **
 const userModel = require('../models/__user__model');
+const config = require('config');
+const Config = JSON.parse(JSON.stringify(config));
 
 const Boom = require('boom');
 const JWT = require('jsonwebtoken');
@@ -27,7 +29,7 @@ exports.login = async (request, h) => {
                 if (result) {
                     const token = JWT.sign(
                         { exp: Math.floor(Date.now() / 1000) + 604800, data: result['_id'].toJSON() },
-                        process.env.SECRET_KEY
+                        Config.SECRET_KEY
                     );
                     return resolve(h.response({ token: token, result }).code(201));   
                 }

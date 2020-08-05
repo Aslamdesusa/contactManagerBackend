@@ -17,7 +17,7 @@
 			"ttl": 864000000
 		}
 	},
-	
+	"SECRET_KEY": "79e1eae542eaf5b30af9f04ad672653ec55d071639504345479dc442107097ac82a4d48ffdceaa0e728cbb0af3e518c5e5c971c158a46e9f1ec2b2e680fa4cef",
 	"mongo": "mongodb://localhost:27017/contactManager",
     "productionMongoDB": "mongodb+srv://contactManager:manager@cluster0.kdauu.mongodb.net/testMongo?retryWrites=true&w=majority"
 }
