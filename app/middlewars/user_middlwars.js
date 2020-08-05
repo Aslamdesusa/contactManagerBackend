@@ -21,7 +21,6 @@ exports.checkUserExistance = async (request, h) => {
 		if (ifPortalExist) {
 			return Boom.conflict('Portal already exist.');
 		}
-
 		return true;
 	} catch (err) {
 		errorHelper.handleError(err);
