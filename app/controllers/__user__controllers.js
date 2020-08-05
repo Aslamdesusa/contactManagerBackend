@@ -5,7 +5,7 @@ const middleware = require('../middlewars/user_middlwars')
 // POST Contact Details
 exports.createUser = {
 	tags: [ 'api' ],
-	notes: 'CREATE user Data and it portal',
+	notes: 'CREATE user Data',
 	validate: {
 		payload: validators.userValidate
     },

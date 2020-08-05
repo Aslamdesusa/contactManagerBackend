@@ -56,6 +56,12 @@ const plugins = [
 			prefix: '/user/api/contact-manager/v1'
 		}
 	},
+	{
+		plugin: '../app/routes/__portal__routes',
+		routes: {
+			prefix: '/portal/api/contact-manager/v1'
+		}
+	},
 ];
 
 exports.manifest = {

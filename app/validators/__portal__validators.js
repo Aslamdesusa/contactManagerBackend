@@ -6,14 +6,7 @@ const Joi = require('joi');
 module.exports = {
 	portalValidate: Joi.object().keys({
         portalName: Joi.string().required().trim().description('portal name'),
-        portalUsers: [
-            {
-                userId: Joi.string().required().trim().description('userId'),
-                profile: Joi.string().required().trim().description('profile'),
-                rols: Joi.string().required().trim().description('rols'),
-                status: Joi.string().required().trim().description('status'),
-            }
-        ],
+        portalUsers: Joi.array().description('portal users array'),
         createdBy: {
             userId: Joi.string().required().trim().description('userId'),
             profile: Joi.string().required().trim().description('profile'),
