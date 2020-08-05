@@ -5,7 +5,7 @@ const Joi = require('joi');
 // exporting module for contact to validate it's data
 module.exports = {
 	userValidate: Joi.object().keys({
-        email: Joi.email().required().trim().description('email addres of user'),
+        email: Joi.string().required().trim().description('email addres of user'),
         password: Joi.string().required().trim().description('pass of user'),
         portals: [
             {

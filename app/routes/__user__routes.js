@@ -9,7 +9,7 @@ exports.plugin = {
 			{
 				method: 'POST',
 				path: '/create/user',
-				options: Controllers.contacts.contact.createUser
+				options: Controllers.users.user.createUser
             },
 		]);
 	},
