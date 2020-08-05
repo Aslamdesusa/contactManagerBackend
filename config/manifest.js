@@ -17,12 +17,25 @@ const plugins = [
 		plugin: '@hapi/vision',
 	},
 	{
+		plugin: '../lib/auth'
+	},
+	{
         plugin: 'hapi-swagger',
         options: {
 			info: {
 				title: 'API Documentation',
-				version: '1'
-			}
+				version: '1.0.0',
+				description: 'Endpoints to test the user registration routes'
+			},
+			
+			securityDefinitions: {
+				jwt: {
+					type: 'apiKey',
+					name: 'Authorization',
+					in: 'header'
+				}
+			},
+			security: [ { jwt: [] } ]
 		}
     },
 	{

@@ -12,3 +12,12 @@ exports.createUser = {
     pre: [ { method: middleware.checkUserExistance, assign: 'User' } ],
 	handler: Handlers.createUser,
 };
+
+exports.login = {
+	tags: [ 'api' ],
+	notes: 'Log In',
+	validate: {
+		payload: validators.login
+	},
+	handler: Handlers.login
+};

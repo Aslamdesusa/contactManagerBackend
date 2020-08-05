@@ -11,6 +11,11 @@ exports.plugin = {
 				path: '/create/user',
 				options: Controllers.users.user.createUser
             },
+            {
+				method: 'POST',
+				path: '/login/user',
+				options: Controllers.users.user.login
+            },
 		]);
 	},
 	version: require('../../package.json').version,

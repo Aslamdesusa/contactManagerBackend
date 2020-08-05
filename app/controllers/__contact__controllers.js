@@ -2,6 +2,12 @@ const Handlers = require('../handlers/__contact__handler');
 const validators = require('../validators/__contact_validators');
 const middleware = require('../middlewars/contact_middlewars')
 
+var options = {
+	swaggerOptions: {
+	  authAction :{ JWT: {name: "JWT", schema: {type: "apiKey", in: "header", name: "Authorization", description: ""}, value: "Bearer <JWT>"} }
+	}
+  };
+
 // POST Contact Details
 exports.createContact = {
 	tags: [ 'api' ],
@@ -14,6 +20,7 @@ exports.createContact = {
 };
 
 exports.getContacts = {
+	auth: 'jwt',
 	tags: [ 'api' ],
 	notes: 'GET contacts Data',
 	handler: Handlers.getContacts,

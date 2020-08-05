@@ -2,6 +2,7 @@
 const userModel = require('../models/__user__model');
 
 const Boom = require('boom');
+const JWT = require('jsonwebtoken');
 
 // Creating Company Details 
 exports.createUser = async (request, h) => {
