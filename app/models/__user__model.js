@@ -8,7 +8,7 @@ const Email = require('mongoose-type-mail');
 
 const schema = new mongoose.Schema(
 	{
-        email: {type: String, trim: true, required: true},
+        email: {type: Email, trim: true, required: true},
         password: { type: String, trim: true, required: true },
         portals: {
             type: Array, 
