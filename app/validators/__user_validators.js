@@ -7,15 +7,6 @@ module.exports = {
 	userValidate: Joi.object().keys({
         email: Joi.string().required().trim().description('email addres of user'),
         password: Joi.string().required().trim().description('pass of user'),
-        portals: [
-            {
-                portal: Joi.string().required().trim().description('portal name'),
-                access: {
-                    profile: Joi.string().required().trim().description('user profile'),
-                    status: Joi.string().required().trim().description('status is active or inactive'),
-                }
-            },
-        ],
     }),
 
     login: Joi.object().keys({

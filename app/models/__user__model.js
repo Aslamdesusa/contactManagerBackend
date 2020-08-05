@@ -10,17 +10,6 @@ const schema = new mongoose.Schema(
 	{
         email: {type: Email, trim: true, required: true},
         password: { type: String, trim: true, required: true },
-        portals: {
-            type: Array, 
-            default: {
-                portal: { type: String, trim: true, required: true },
-                access: {
-                    profile: {type: String, enum: ['administrator', 'data_administator', 'standard'], default: 'administrator'},
-                    rols: {type: String, trim: true},
-                    status: {type: String, enum: ['Active', 'Inactive'], default: 'Active'}
-                }
-            },
-        },
 	},
 	{ collection: 'users' }
 );
