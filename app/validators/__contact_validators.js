@@ -6,6 +6,7 @@ const Joi = require('joi');
 module.exports = {
 	contactValidate: Joi.object().keys({
         userId: Joi.string().required().trim().description('User Id Who Createing This contact'),
+        portal: Joi.string().required().trim().description('company portal Id where this data is saving'),
         contactName: Joi.string().required().trim().description('contact name'),
         title: Joi.string().allow('', null).trim().description('title'),
         companyId: Joi.string().allow('', null).trim().description('companyId'),

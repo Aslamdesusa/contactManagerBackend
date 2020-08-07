@@ -6,6 +6,7 @@ const timestamps = require('mongoose-timestamp');
 const schema = new mongoose.Schema(
 	{
         userId: { type: String, trim: true },
+        portal: { type: String, trim: true },
         contactName: { type: String, trim: true },
         title: { type: String, trim: true },
         companyId: { type: String, trim: true },

@@ -20,3 +20,18 @@ exports.createPortal = async (request, h) => {
 	};
 	return new Promise(pr);
 };
+
+// Creating Company Details 
+exports.getPortalById = async (request, h) => {
+	
+	let pr = async (resolve, reject) => {
+        portalModel.find({'createdBy.userId': request.query.userId}, async function(err, doc){
+            if (err) {
+                return reject(Boom.forbidden(err));
+            }else{
+                return resolve(h.response({ status: 'ok', doc }).code(201));
+            }
+        })
+	};
+	return new Promise(pr);
+};
