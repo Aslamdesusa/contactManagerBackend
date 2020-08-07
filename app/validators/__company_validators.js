@@ -39,9 +39,9 @@ module.exports = {
     }),
 
     rolesQuery: Joi.object().keys({
-		role: Joi.string().required().trim().description('role'),
-		userId: Joi.string().required().trim().description('user Id'),
-		portalName: Joi.string().required().trim().description('Portalname')
+      role: Joi.string().required().trim().description('role'),
+      userId: Joi.string().required().trim().description('user Id'),
+      portalName: Joi.string().required().trim().description('Portalname')
     }),
 
     tags: Joi.object().keys({

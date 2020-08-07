@@ -26,6 +26,15 @@ exports.getContacts = {
 	handler: Handlers.getContacts,
 };
 
+exports.contactsByUserRoles = {
+	tags: [ 'api' ],
+	notes: 'GET contacts Data by user roles',
+	validate:{
+		query: validators.rolesQuery
+	},
+	handler: Handlers.contactsByUserRoles,
+};
+
 exports.getContactById = {
 	tags: [ 'api' ],
 	notes: 'GET contact Data by id',

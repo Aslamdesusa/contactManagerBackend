@@ -31,6 +31,29 @@ exports.getContacts = async (request, h) => {
 	})
 };
 
+exports.contactsByUserRoles = async (request, h) => {
+	return new Promise((resolve, reject) =>{
+		if (request.query.role === 'administrator' || request.query.role === 'data_administator') {
+			contactModel.find({portal: request.query.portalName}, async function(err, doc){
+				if (err) {
+					return reject(Boom.forbidden(err))
+				}else{
+					return resolve(h.response({status: 'ok', documents: doc}))
+				}
+			})
+		}else if (request.query.role === 'standard') {
+			contactModel.find({userId: request.query.userId}, async function(err, contacts){
+				if (err) {
+					return reject(Boom.forbidden(err))
+				}else{
+					return resolve(h.response({status: 'ok', documents: contacts}))
+				}
+			})
+		}
+	})
+};
+
+
 exports.getContactById = async (request, h) => {
 	return new Promise((resolve, reject) =>{
 		contactModel.findOne({_id: request.query._id}, async function(err, doc){

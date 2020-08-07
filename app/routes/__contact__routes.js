@@ -41,6 +41,11 @@ exports.plugin = {
 				path: '/delete/contact',
 				options: Controllers.contacts.contact.deleteContact
 			},
+			{
+				method: 'GET',
+				path: '/contacts/by/role',
+				options: Controllers.contacts.contact.contactsByUserRoles
+			},
 		]);
 	},
 	version: require('../../package.json').version,

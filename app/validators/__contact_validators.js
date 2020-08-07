@@ -34,6 +34,12 @@ module.exports = {
 		_id: Joi.string().required().trim().description('company id')
     }),
 
+    rolesQuery: Joi.object().keys({
+        role: Joi.string().required().trim().description('role'),
+        userId: Joi.string().required().trim().description('user Id'),
+        portalName: Joi.string().required().trim().description('Portalname')
+    }),
+    
     tags: Joi.object().keys({
 		  tags: Joi.array().description('company tags to filter data')
     }),
