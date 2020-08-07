@@ -14,7 +14,7 @@ exports.createPortal = async (request, h) => {
             if (err) {
                 return reject(Boom.forbidden(err));
             }else{
-                return resolve(h.response({ status: 'ok', doc_id: doc._id }).code(201));
+                return resolve(h.response({ status: 'ok', doc }).code(201));
             }
         })
 	};
