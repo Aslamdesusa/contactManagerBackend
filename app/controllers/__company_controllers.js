@@ -19,6 +19,15 @@ exports.getCompanies = {
 	handler: Handlers.getCompanies,
 };
 
+exports.companiesByUserRoles = {
+	tags: [ 'api' ],
+	notes: 'GET Companies Data by user roles',
+	validate:{
+		query: validators.rolesQuery
+	},
+	handler: Handlers.companiesByUserRoles,
+};
+
 exports.getCompanyById = {
 	tags: [ 'api' ],
 	notes: 'GET company Data by id',

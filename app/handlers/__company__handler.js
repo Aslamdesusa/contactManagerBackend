@@ -31,10 +31,10 @@ exports.getCompanies = async (request, h) => {
 	})
 };
 
-exports.companiesByUserRoll = async (request, h) => {
+exports.companiesByUserRoles = async (request, h) => {
 	return new Promise((resolve, reject) =>{
 		if (request.query.role === 'administrator' || request.query.role === 'data_administator') {
-			companyModel.find({portalName: request.query.portalName}, async function(err, doc){
+			companyModel.find({portal: request.query.portalName}, async function(err, doc){
 				if (err) {
 					return reject(Boom.forbidden(err))
 				}else{

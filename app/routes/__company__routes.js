@@ -41,6 +41,11 @@ exports.plugin = {
 				path: '/delete/company',
 				options: Controllers.compnay.companies.deleteCompany
 			},
+			{
+				method: 'GET',
+				path: '/companies/by/user/roles',
+				options: Controllers.compnay.companies.companiesByUserRoles
+			},
 		]);
 	},
 	version: require('../../package.json').version,
