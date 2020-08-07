@@ -12,3 +12,12 @@ exports.createPortal = {
 	pre: [ { method: middleware.checkPortalExistance, assign: 'Portals' } ],
 	handler: Handlers.createPortal,
 };
+
+exports.getPortalById = {
+	tags: [ 'api' ],
+	notes: 'Portal By Id',
+	validate: {
+		query: validators.userId
+	},
+	handler: Handlers.getPortalById
+};

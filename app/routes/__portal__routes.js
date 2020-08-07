@@ -10,7 +10,12 @@ exports.plugin = {
 				method: 'POST',
 				path: '/create/portal',
 				options: Controllers.portals.portal.createPortal
-            },
+			},
+			{
+				method: 'GET',
+				path: '/get/portal/by/user-id',
+				options: Controllers.portals.portal.getPortalById
+			},
 		]);
 	},
 	version: require('../../package.json').version,

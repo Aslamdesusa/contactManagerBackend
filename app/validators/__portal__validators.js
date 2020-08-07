@@ -16,6 +16,10 @@ module.exports = {
     }),
 
     _id: Joi.object().keys({
-		_id: Joi.string().required().trim().description('user _id')
+		  _id: Joi.string().required().trim().description('user _id')
+    }),
+
+    userId: Joi.object().keys({
+		  userId: Joi.string().required().trim().description('user _id')
     }),
 };
