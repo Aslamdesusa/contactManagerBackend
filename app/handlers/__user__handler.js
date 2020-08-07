@@ -21,7 +21,11 @@ exports.createUser = async (request, h) => {
 					if (err) {
 						return reject(Boom.forbidden(err));
 					} else {
-						return resolve(h.response({ status: 'ok', user_id: doc._id }).code(201));
+						const token = JWT.sign(
+							{ exp: Math.floor(Date.now() / 1000) + 604800, data: doc._id.toJSON() },
+							Config.SECRET_KEY
+						);
+						return resolve(h.response({ status: 'ok', user_id: doc._id, token: token}).code(201));
 					}
 				});
 			}
