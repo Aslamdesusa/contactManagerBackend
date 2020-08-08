@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const timestamps = require('mongoose-timestamp');
 const SALT_WORK_FACTOR = 10;
 const Email = require('mongoose-type-mail');
-const main = require('../../lib/mailer')
+const mail = require('../../lib/mailer')
 
 
 const schema = new mongoose.Schema(
@@ -36,7 +36,7 @@ schema.statics.checkValidPassword = async function(email, password) {
 schema.pre('save', function(next) {
 	let user = this;
 
-	main(user.email, 'New Sign-in to your Zoho account')
+	mail(user.email, 'New Sign-in to your Zoho account', 'new')
 
 	// generate a salt
 	bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
