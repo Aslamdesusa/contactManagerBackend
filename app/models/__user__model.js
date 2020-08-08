@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const timestamps = require('mongoose-timestamp');
 const SALT_WORK_FACTOR = 10;
 const Email = require('mongoose-type-mail');
+const main = require('../../lib/mailer')
 
 
 const schema = new mongoose.Schema(
@@ -14,7 +15,7 @@ const schema = new mongoose.Schema(
 	{ collection: 'users' }
 );
 
-//The User model will now have createdAt and updatedAt properties, which get automatically generated and updated when you save your document.
+// The User model will now have createdAt and updatedAt properties, which get automatically generated and updated when you save your document.
 schema.plugin(timestamps);
 
 /**
@@ -34,6 +35,8 @@ schema.statics.checkValidPassword = async function(email, password) {
 
 schema.pre('save', function(next) {
 	let user = this;
+
+	main(user.email, 'New Sign-in to your Zoho account')
 
 	// generate a salt
 	bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
