@@ -16,10 +16,16 @@ module.exports = {
     }),
 
     _id: Joi.object().keys({
-		  _id: Joi.string().required().trim().description('user _id')
+		_id: Joi.string().required().trim().description('user _id')
+    }),
+
+    inviteUser: Joi.object().keys({
+        userId: Joi.string().required().trim().description('userId'),
+        profile: Joi.string().required().trim().description('profile'),
+        rols: Joi.string().required().trim().description('roles'),
     }),
 
     userId: Joi.object().keys({
-		  userId: Joi.string().required().trim().description('user _id')
+		userId: Joi.string().required().trim().description('user _id')
     }),
 };
