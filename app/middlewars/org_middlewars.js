@@ -19,3 +19,24 @@ exports.checkPortalExistance = async (request, h) => {
 		errorHelper.handleError(err);
 	}
 };
+
+
+exports.checkInviteUserExistance = async (request, h) => {
+	try {
+		let inviteObject = {
+			userId: request.payload.userId,
+			profile: request.payload.profile,
+			rols: request.payload.rols,
+			status: 'Active',
+		}
+
+		let checkInviteUser = await portalModel.findOne({_id: request.query._id, portalUsers: {$in: [inviteObject]}});
+
+		if (checkInviteUser) {
+			return Boom.conflict('user invitation already sent');
+		}	
+		return true;
+	} catch (error) {
+		errorHelper.handleError(err);
+	}
+};

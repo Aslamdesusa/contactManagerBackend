@@ -21,3 +21,14 @@ exports.getPortalById = {
 	},
 	handler: Handlers.getPortalById
 };
+
+exports.inviteUser = {
+	tags: [ 'api' ],
+	notes: 'Invite User',
+	validate: {
+		query: validators._id,
+		payload: validators.inviteUser
+	},
+	pre: [ { method: middleware.checkInviteUserExistance, assign: 'InviteUser' } ],
+	handler: Handlers.inviteUser
+};

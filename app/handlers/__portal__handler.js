@@ -45,7 +45,7 @@ exports.inviteUser = async (request, h) => {
 
 	let pr = async (resolve, reject) => {
         let userRole = {
-            userId: request.payload.email,
+            userId: request.payload.userId,
             profile: request.payload.profile,
             rols: request.payload.rols,
             status: 'Active'
@@ -54,7 +54,7 @@ exports.inviteUser = async (request, h) => {
             if (err) {
                 return reject(Boom.forbidden(err));
             }else{
-                mail(request.payload.email, "Hey there! You've got an invite to join Zoho ContactManager", 'invite')
+                mail(request.payload.userId, "Hey there! You've got an invite to join Zoho ContactManager", 'invite')
                 return resolve(h.response({ status: 'ok', doc }).code(201));
             }
         })

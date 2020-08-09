@@ -16,7 +16,7 @@ module.exports = {
     }),
 
     _id: Joi.object().keys({
-		_id: Joi.string().required().trim().description('user _id')
+		_id: Joi.string().required().trim().description('portal _id')
     }),
 
     inviteUser: Joi.object().keys({

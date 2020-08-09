@@ -16,6 +16,11 @@ exports.plugin = {
 				path: '/get/portal/by/user-id',
 				options: Controllers.portals.portal.getPortalById
 			},
+			{
+				method: 'PUT',
+				path: '/invite/user',
+				options: Controllers.portals.portal.inviteUser
+			},
 		]);
 	},
 	version: require('../../package.json').version,
