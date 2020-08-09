@@ -29,11 +29,21 @@ exports.createPortal = async (request, h) => {
 exports.getPortalById = async (request, h) => {
 	
 	let pr = async (resolve, reject) => {
-        portalModel.find({'createdBy.userId': request.query.userId}, async function(err, doc){
+        portalModel.findOne({'createdBy.userId': request.query.userId}, async function(err, doc){
             if (err) {
                 return reject(Boom.forbidden(err));
             }else{
-                return resolve(h.response({ status: 'ok', doc }).code(201));
+                if (doc) {
+                    return resolve(h.response({ status: 'ok', doc }).code(201));
+                }else{
+                    portalModel.findOne({portalUsers: { $elemMatch: { userId: request.query.userId } } }, async function(err, res){
+                        if (err) {
+                            return reject(Boom.forbidden(err));
+                        }else{
+                            return resolve(h.response({ status: 'ok', res }).code(201));
+                        }
+                    })
+                }
             }
         })
 	};
