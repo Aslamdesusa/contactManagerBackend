@@ -30,3 +30,12 @@ exports.getUserById = {
 	},
 	handler: Handlers.getUserById
 };
+
+exports.acceptInvitation = {
+	tags: [ 'api' ],
+	notes: 'accept invitation',
+	validate: {
+		query: validators._id
+	},
+	handler: Handlers.acceptInvitation
+};

@@ -21,6 +21,11 @@ exports.plugin = {
 				path: '/user/single/user',
 				options: Controllers.users.user.getUserById
 			},
+			{
+				method: 'GET',
+				path: '/user/accept/invitation',
+				options: Controllers.users.user.acceptInvitation
+			},
 		]);
 	},
 	version: require('../../package.json').version,
