@@ -32,3 +32,13 @@ exports.inviteUser = {
 	pre: [ { method: middleware.checkInviteUserExistance, assign: 'InviteUser' } ],
 	handler: Handlers.inviteUser
 };
+
+exports.removeInvitedUser = {
+	tags: [ 'api' ],
+	notes: 'removing invited users',
+	validate: {
+		query: validators._id,
+		payload: validators.inviteUser
+	},
+	handler: Handlers.removeInvitedUser
+};

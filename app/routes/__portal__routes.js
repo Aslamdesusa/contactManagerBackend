@@ -21,6 +21,11 @@ exports.plugin = {
 				path: '/invite/user',
 				options: Controllers.portals.portal.inviteUser
 			},
+			{
+				method: 'PUT',
+				path: '/remove/user',
+				options: Controllers.portals.portal.removeInvitedUser
+			},
 		]);
 	},
 	version: require('../../package.json').version,

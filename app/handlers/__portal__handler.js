@@ -61,3 +61,21 @@ exports.inviteUser = async (request, h) => {
 	};
 	return new Promise(pr);
 };
+
+exports.removeInvitedUser = async (request, h) => {
+	return new Promise((resolve, reject) =>{
+        let userRole = {
+            userId: request.payload.userId,
+            profile: request.payload.profile,
+            rols: request.payload.rols,
+            status: 'Active'
+        }
+		portalModel.updateOne({_id: request.query._id},{$pull: {portalUsers: {$in: [userRole]}}}, async function(err, doc){
+			if (err) {
+				return reject(Boom.forbidden(err))
+			}else{
+				return resolve(h.response({status: 'ok', documents: doc}))
+			}
+		})
+	})
+};
