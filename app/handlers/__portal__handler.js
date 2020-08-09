@@ -68,7 +68,7 @@ exports.removeInvitedUser = async (request, h) => {
             userId: request.payload.userId,
             profile: request.payload.profile,
             rols: request.payload.rols,
-            status: 'Active'
+            status: request.payload.status
         }
 		portalModel.updateOne({_id: request.query._id},{$pull: {portalUsers: {$in: [userRole]}}}, async function(err, doc){
 			if (err) {
