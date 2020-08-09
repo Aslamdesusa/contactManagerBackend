@@ -16,6 +16,11 @@ module.exports = {
     }),
 
     _id: Joi.object().keys({
-		_id: Joi.string().required().trim().description('user _id')
+		  _id: Joi.string().required().trim().description('user _id')
     }),
+
+    acceptInvitation: Joi.object().keys({
+      portal_id: Joi.string().required().trim().description('portal _id'),
+      email: Joi.string().required().trim().description('user email'),
+    })
 };

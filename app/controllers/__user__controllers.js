@@ -35,7 +35,7 @@ exports.acceptInvitation = {
 	tags: [ 'api' ],
 	notes: 'accept invitation',
 	validate: {
-		query: validators._id
+		query: validators.acceptInvitation
 	},
 	handler: Handlers.acceptInvitation
 };

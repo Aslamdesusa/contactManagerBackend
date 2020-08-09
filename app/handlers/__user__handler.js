@@ -70,12 +70,29 @@ exports.acceptInvitation = async (request, h) => {
 	let pr = async (resolve, reject) => {
 		let userDetails = await userModel.findOne({email: request.query.email})
 		if (!userDetails) {
-			let new_user = new userModel(request.payload);
+			let new_user = new userModel({
+				email: request.query.email,
+				password: 'test'
+			});
 			new_user.save({}, async function(err, doc){
 				if (err) {
 					return reject(Boom.forbidden(err))
 				}else{
-					portalModel.findOne({_id: request.query.portalId})
+					portalModel.updateOne({_id: request.query.portal_id, portalUsers: { $elemMatch: { userId: request.query.email } } }, { $set: { "portalUsers.$.userId" : doc._id, "portalUsers.$.invitation" : 'accepted' } }, async function(err, doc){
+						if (err) {
+							return reject(Boom.forbidden(err))
+						}else{
+							return resolve(h.response({status: 'ok', documents: doc}))
+						}
+					})
+				}
+			})
+		}else{
+			portalModel.updateOne({_id: request.query.portal_id, portalUsers: { $elemMatch: { userId: request.query.email } } }, { $set: { "portalUsers.$.userId" : userDetails._id, "portalUsers.$.invitation" : 'accepted' } }, async function(err, doc){
+				if (err) {
+					return reject(Boom.forbidden(err))
+				}else{
+					return resolve(h.response({status: 'ok', documents: doc}))
 				}
 			})
 		}
