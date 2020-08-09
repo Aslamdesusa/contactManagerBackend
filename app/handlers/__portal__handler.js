@@ -36,11 +36,11 @@ exports.getPortalById = async (request, h) => {
                 if (doc) {
                     return resolve(h.response({ status: 'ok', doc }).code(201));
                 }else{
-                    portalModel.findOne({portalUsers: { $elemMatch: { userId: request.query.userId } } }, async function(err, res){
+                    portalModel.findOne({portalUsers: { $elemMatch: { userId: request.query.userId } } }, async function(err, doc){
                         if (err) {
                             return reject(Boom.forbidden(err));
                         }else{
-                            return resolve(h.response({ status: 'ok', res }).code(201));
+                            return resolve(h.response({ status: 'ok', doc }).code(201));
                         }
                     })
                 }
