@@ -63,3 +63,22 @@ exports.getUserById = async (request, h) => {
 		})
 	});
 };
+
+// accept invitatoin by user
+exports.acceptInvitation = async (request, h) => {
+
+	let pr = async (resolve, reject) => {
+		let userDetails = await userModel.findOne({email: request.query.email})
+		if (!userDetails) {
+			let new_user = new userModel(request.payload);
+			new_user.save({}, async function(err, doc){
+				if (err) {
+					return reject(Boom.forbidden(err))
+				}else{
+					portalModel.findOne({_id: request.query.portalId})
+				}
+			})
+		}
+	};
+	return new Promise(pr);
+};
