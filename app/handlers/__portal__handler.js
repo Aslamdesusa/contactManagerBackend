@@ -55,7 +55,7 @@ exports.inviteUser = async (request, h) => {
             if (err) {
                 return reject(Boom.forbidden(err));
             }else{
-                mail(request.payload.userId, "Hey there! You've got an invite to join Zoho ContactManager", 'invite')
+                mail(request.payload.userId, "Hey there! You've got an invite to join Zoho ContactManager", 'invite', (doc._id).toString())
                 return resolve(h.response({ status: 'ok', doc }).code(201));
             }
         })

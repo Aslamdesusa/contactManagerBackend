@@ -72,7 +72,7 @@ exports.acceptInvitation = async (request, h) => {
 		if (!userDetails) {
 			let new_user = new userModel({
 				email: request.query.email,
-				password: 'test'
+				password: 'demo1234'
 			});
 			new_user.save({}, async function(err, doc){
 				console.log((doc.id).toString())
