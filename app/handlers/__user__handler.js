@@ -7,6 +7,7 @@ const Config = JSON.parse(JSON.stringify(config));
 const Boom = require('boom');
 const JWT = require('jsonwebtoken');
 const { conflict } = require('boom');
+const mail = require('../../lib/mailer');
 
 // Creating Company Details 
 exports.createUser = async (request, h) => {
@@ -75,7 +76,6 @@ exports.acceptInvitation = async (request, h) => {
 				password: 'demo1234'
 			});
 			new_user.save({}, async function(err, doc){
-				console.log((doc.id).toString())
 				if (err) {
 					return reject(Boom.forbidden(err))
 				}else{
@@ -83,6 +83,7 @@ exports.acceptInvitation = async (request, h) => {
 						if (err) {
 							return reject(Boom.forbidden(err))
 						}else{
+							mail(request.query.email, "Hey there! You've got an new accout in Zoho ContactManager", 'success')
 							return resolve(h.response({status: 'ok', documents: doc}))
 						}
 					})
