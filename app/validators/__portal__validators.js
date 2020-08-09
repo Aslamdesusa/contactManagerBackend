@@ -26,6 +26,14 @@ module.exports = {
         status: Joi.string().required().trim().description('status ---'),
     }),
 
+    deleteUser: Joi.object().keys({
+      userId: Joi.string().required().trim().description('userId'),
+      profile: Joi.string().required().trim().description('profile'),
+      rols: Joi.string().required().trim().description('roles'),
+      status: Joi.string().required().trim().description('status ---'),
+      invitation: Joi.string().required().trim().description('invitation ---'),
+  }),
+
     userId: Joi.object().keys({
 		userId: Joi.string().required().trim().description('user _id')
     }),

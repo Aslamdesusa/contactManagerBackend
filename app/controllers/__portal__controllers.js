@@ -38,7 +38,7 @@ exports.removeInvitedUser = {
 	notes: 'removing invited users',
 	validate: {
 		query: validators._id,
-		payload: validators.inviteUser
+		payload: validators.deleteUser
 	},
 	handler: Handlers.removeInvitedUser
 };

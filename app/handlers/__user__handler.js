@@ -75,10 +75,11 @@ exports.acceptInvitation = async (request, h) => {
 				password: 'test'
 			});
 			new_user.save({}, async function(err, doc){
+				console.log((doc.id).toString())
 				if (err) {
 					return reject(Boom.forbidden(err))
 				}else{
-					portalModel.updateOne({_id: request.query.portal_id, portalUsers: { $elemMatch: { userId: request.query.email } } }, { $set: { "portalUsers.$.userId" : doc._id, "portalUsers.$.invitation" : 'accepted' } }, async function(err, doc){
+					portalModel.updateOne({_id: request.query.portal_id, portalUsers: { $elemMatch: { userId: request.query.email } } }, { $set: { "portalUsers.$.userId" : (doc._id).toString(), "portalUsers.$.invitation" : 'accepted' } }, async function(err, doc){
 						if (err) {
 							return reject(Boom.forbidden(err))
 						}else{
@@ -88,7 +89,7 @@ exports.acceptInvitation = async (request, h) => {
 				}
 			})
 		}else{
-			portalModel.updateOne({_id: request.query.portal_id, portalUsers: { $elemMatch: { userId: request.query.email } } }, { $set: { "portalUsers.$.userId" : userDetails._id, "portalUsers.$.invitation" : 'accepted' } }, async function(err, doc){
+			portalModel.updateOne({_id: request.query.portal_id, portalUsers: { $elemMatch: { userId: request.query.email } } }, { $set: { "portalUsers.$.userId" : (userDetails._id).toString(), "portalUsers.$.invitation" : 'accepted' } }, async function(err, doc){
 				if (err) {
 					return reject(Boom.forbidden(err))
 				}else{
