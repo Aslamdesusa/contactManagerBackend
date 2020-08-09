@@ -48,7 +48,8 @@ exports.inviteUser = async (request, h) => {
             userId: request.payload.userId,
             profile: request.payload.profile,
             rols: request.payload.rols,
-            status: 'Active'
+            status: 'Active',
+            invitation: 'pending'
         }
         portalModel.findOneAndUpdate({_id: request.query._id}, {$push: {portalUsers: userRole}}, async function(err, doc){
             if (err) {
@@ -68,7 +69,8 @@ exports.removeInvitedUser = async (request, h) => {
             userId: request.payload.userId,
             profile: request.payload.profile,
             rols: request.payload.rols,
-            status: request.payload.status
+            status: request.payload.status,
+            invitation: request.payload.invitation
         }
 		portalModel.updateOne({_id: request.query._id},{$pull: {portalUsers: {$in: [userRole]}}}, async function(err, doc){
 			if (err) {

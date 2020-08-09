@@ -24,6 +24,7 @@ module.exports = {
         profile: Joi.string().required().trim().description('profile'),
         rols: Joi.string().required().trim().description('roles'),
         status: Joi.string().required().trim().description('status ---'),
+        invitation: Joi.string().required().trim().description('Accepted or pending'),
     }),
 
     userId: Joi.object().keys({
