@@ -23,6 +23,7 @@ module.exports = {
         userId: Joi.string().required().trim().description('userId'),
         profile: Joi.string().required().trim().description('profile'),
         rols: Joi.string().required().trim().description('roles'),
+        status: Joi.string().required().trim().description('status ---'),
     }),
 
     userId: Joi.object().keys({
